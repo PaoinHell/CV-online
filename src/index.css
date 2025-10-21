@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@font-face {
+  font-family: "MyFont";
+  src: url("/fonts/RobotoMono-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Áp dụng toàn app */
+body {
+  font-family: "MyFont", sans-serif;
+}

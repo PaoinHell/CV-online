@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import avatar from "../../public/avatar.jpg";
-import icons from "../assets/icons";
+import icon_github from "../../public/icons/icon_github.png";
+import icon_email from "../../public/icons/icon_email.png";
+import icon_phone from "../../public/icons/icon_phone.png";
+import icon_fb from "../../public/icons/icon_fb.png";
 
 const Sidebar = () => {
   const [openGroups, setOpenGroups] = useState({});
@@ -36,18 +39,18 @@ const Sidebar = () => {
 
   const info = [
     {
-      icon: "icon_github.png",
+      icon: icon_github,
       name: "Github",
       value: "https://github.com/PaoinHell",
     },
     {
-      icon: "icon_email.png",
+      icon: icon_email,
       name: "Email",
       value: "paowork1410@outlook.com",
     },
-    { icon: "icon_phone.png", name: "Phone", value: "+84 939 092 594" },
+    { icon: icon_phone, name: "Phone", value: "+84 939 092 594" },
     {
-      icon: "icon_fb.png",
+      icon: icon_fb,
       name: "Facebook",
       value: "facebook.com/pao.multiverse.1410",
     },
@@ -76,7 +79,7 @@ const Sidebar = () => {
             {info.map((item, idx) => (
               <li key={idx} className="flex justify-between space-x-2 mb-3">
                 <img
-                  src={`/icons/${item.icon}`} // path từ public/icons
+                  src={item.icon} // path từ public/icons
                   alt={item.name}
                   className="w-5 h-5"
                 />

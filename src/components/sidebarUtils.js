@@ -36,5 +36,5 @@ export const downloadPDF = async () => {
     heightLeft -= pdfHeight;
   }
 
-  pdf.save("CV.pdf");
+  pdf.save("CV_TranQuocBao.pdf");
 };

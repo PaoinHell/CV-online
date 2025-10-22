@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Template</title>
+    <style>
+      #cv-content {
+        display: flex;
+      }
+      #sidebar {
+        width: 30%;
+        background-color: #566f77;
+        color: #f2f4f6;
+        height: auto;
+        position: relative;
+        transition-duration: 300ms;
+        margin: 1.25rem;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+      #sidebar_header {
+        background-color: #7da38c;
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #sidebar_header img {
+        width: 10rem;
+        height: 10rem;
+        object-fit: cover;
+        transition-duration: 300ms;
+        border-radius: 9999px;
+        border: 4px solid #9bbf9e;
+      }
+      #sidebar_header h1 {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+        padding-top: 1.25rem;
+        font-weight: 700;
+        text-align: center;
+      }
+      #sidebar_header h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        text-align: center;
+      }
+      #sidebar_info {
+        margin-top: 1.25rem;
+        padding: 1.25rem;
+      }
+      #sidebar_info ul {
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      #item_info {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+      #item_info img {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+      #sidebar_skills {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        margin-bottom: 2rem;
+      }
+      #sidebar_nameGroup {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+      }
+      #sidebar_nameGroup h2 {
+        font-weight: 600;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        background-color: #7da38c;
+        border-radius: 2rem;
+        overflow: hidden;
+        padding: 0.5rem 0.75rem;
+      }
+      #sidebar_nameGroup div {
+        flex-grow: 1;
+        border-bottom: 1px solid #faebef;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+      #sidebar_listSkills {
+        list-style-type: disc;
+        list-style-position: inside;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        padding-left: 0.75rem;
+      }
+      #sidebar_listSkills li {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+      }
+      #main_content {
+        flex: 1 1 0%;
+        margin: 1.25rem;
+      }
+      #section {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+      #section div {
+        flex-grow: 1;
+        border: 2px solid #566f77;
+        border-radius: 9999px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
+      #section h2 {
+        background-color: #566f77;
+        color: #f2f4f6;
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        border-radius: 2rem;
+        overflow: hidden;
+        padding: 0.5rem 1.25rem;
+      }
+      #description-container {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-top: 1rem;
+      }
+      #description-container p {
+        color: #566f77;
+        font-size: 1rem;
+        line-height: 1.625rem;
+      }
+      #experience-section {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-top: 1rem;
+      }
+      #experience-item {
+        margin-bottom: 1rem;
+      }
+      #experience-header {
+        color: #566f77;
+        font-weight: 600;
+        font-size: 1.125rem;
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #experience-list {
+        list-style-type: disc;
+        list-style-position: inside;
+        color: #566f77;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        line-height: 1.625rem;
+      }
+      #education-section {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-top: 1rem;
+      }
+      #education-item {
+        margin-bottom: 1rem;
+      }
+      #education-header {
+        color: #566f77;
+        font-weight: 600;
+        font-size: 1.125rem;
+        margin-top: 0.75rem;
+        margin-bottom: 0.75rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #education-list {
+        list-style-type: disc;
+        list-style-position: inside;
+        color: #566f77;
+        font-size: 1rem;
+        line-height: 1.625rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="cv-content">
+      <!-- SIDEBAR -->
+      <div id="sidebar">
+        <div id="sidebar_header">
+          <img src="avatar.jpg" alt="avatar" />
+          <h1>TRAN QUOC BAO</h1>
+          <h2>Software Engineer</h2>
+        </div>
+
+        <div id="sidebar_info">
+          <ul>
+            <li id="item_info">
+              <img src="phone.png" alt="Phone" />
+              <span>+84 123 456 789</span>
+            </li>
+            <li id="item_info">
+              <img src="email.png" alt="Email" />
+              <span>bao@example.com</span>
+            </li>
+          </ul>
+
+          <div id="sidebar_skills">
+            <div>
+              <div id="sidebar_nameGroup">
+                <h2>Technical Skills</h2>
+                <div></div>
+              </div>
+              <ul id="sidebar_listSkills">
+                <li>JavaScript</li>
+                <li>ReactJS</li>
+                <li>NodeJS</li>
+                <li>MongoDB</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div id="main_content">
+        <!-- ABOUT ME -->
+        <div id="section">
+          <div></div>
+          <h2>ABOUT ME</h2>
+          <div></div>
+        </div>
+        <div id="description-container">
+          <p>
+            I am a Software Engineering graduate from Huflit with 2 years of
+            experience in JavaScript frameworks, including NodeJS and ReactJS. I
+            have hands-on experience working with both SQL and NoSQL databases,
+            particularly MongoDB. Additionally, I have professional experience
+            as a Business Analyst at FPT Information System Corp.
+          </p>
+        </div>
+
+        <!-- EXPERIENCES -->
+        <div id="section">
+          <div></div>
+          <h2>EXPERIENCES</h2>
+          <div></div>
+        </div>
+        <div id="experience-section">
+          <div id="experience-item">
+            <div id="experience-header">
+              <span>2023 - Present | FPT IS | Business Analyst</span>
+            </div>
+            <ul id="experience-list">
+              <li>Gather requirements and create documentation.</li>
+              <li>Support project implementation.</li>
+              <li>Collaborate with developers and stakeholders.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- EDUCATIONS -->
+        <div id="section">
+          <div></div>
+          <h2>EDUCATIONS</h2>
+          <div></div>
+        </div>
+        <div id="education-section">
+          <div id="education-item">
+            <div id="education-header">
+              <span>2019 - 2023 | Huflit University</span>
+            </div>
+            <ul id="education-list">
+              <li>Bachelor of Software Engineering</li>
+              <li>Graduated with GPA: 3.5/4.0</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

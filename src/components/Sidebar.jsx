@@ -1,9 +1,23 @@
 import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { avatarImg, info, skills, exps, educations } from "./sidebarData";
-import { groupSkills, toggleState, downloadPDF } from "./sidebarUtils";
+import { groupSkills, toggleState } from "./sidebarUtils";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import CVTemplate from "./CV_template";
 
 const Sidebar = () => {
+  const data = {
+    name: "TRAN QUOC BAO",
+    position: "Software Engineer",
+    avatar: avatarImg,
+    info,
+    skills,
+    exps,
+    educations,
+    about:
+      "I am a Software Engineering graduate from Huflit with 2 years of experience in JavaScript frameworks, including NodeJS and ReactJS. I have hands-on experience working with both SQL and NoSQL databases, particularly MongoDB. Additionally, I have professional experience as a Business Analyst at FPT Information System Corp, where I gathered requirements, created documentation, and supported project implementation.",
+  };
+
   const [openExps, setOpenExps] = useState(
     exps.reduce((acc, _, index) => {
       acc[index] = true;
@@ -29,21 +43,19 @@ const Sidebar = () => {
   return (
     <>
       <div>
-        <div id="cv-content" className="flex bg-white">
+        <div id="cv-content" className="flex">
           {/* Sidebar */}
           <div className="w-100 bg-[#566F77] text-[#F2F4F6] h-auto relative duration-300 m-5 rounded-xl overflow-hidden">
-            <div className="bg-[#7DA38C]">
-              <div className="p-5 pt-8 flex flex-col justify-between items-center">
-                <img
-                  src={avatarImg}
-                  alt="avatar"
-                  className="w-40 h-40 object-cover duration-300 rounded-full border-4 border-[#9BBF9E]"
-                />
-                <h1 className="text-4xl pt-5 font-bold text-center">
-                  TRAN QUOC BAO
-                </h1>
-                <h2 className="text-2xl text-center">Software Engineer</h2>
-              </div>
+            <div className="bg-[#7DA38C] p-5 pt-8 flex flex-col justify-between items-center">
+              <img
+                src={avatarImg}
+                alt="avatar"
+                className="w-40 h-40 object-cover duration-300 rounded-full border-4 border-[#9BBF9E]"
+              />
+              <h1 className="text-4xl pt-5 font-bold text-center">
+                TRAN QUOC BAO
+              </h1>
+              <h2 className="text-2xl text-center">Software Engineer</h2>
             </div>
 
             <div className="mt-5 w-full px-10">
@@ -156,12 +168,22 @@ const Sidebar = () => {
           </div>
         </div>
         <div className="flex justify-end m-5">
-          <button
-            onClick={downloadPDF}
-            className="bg-[#7DA38C] text-white px-4 py-2 rounded hover:bg-[#6B8C70]"
+          <PDFDownloadLink
+            document={<CVTemplate data={data} />}
+            fileName="TranQuocBao_CV.pdf"
           >
-            Download PDF
-          </button>
+            {({ loading }) =>
+              loading ? (
+                <button className="bg-gray-400 text-white px-4 py-2 rounded">
+                  Đang tạo PDF...
+                </button>
+              ) : (
+                <button className="bg-[#7DA38C] text-white px-4 py-2 rounded hover:bg-[#6B8C70]">
+                  Download PDF
+                </button>
+              )
+            }
+          </PDFDownloadLink>
         </div>
       </div>
     </>

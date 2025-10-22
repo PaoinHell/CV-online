@@ -2,9 +2,6 @@ import { useState } from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { avatarImg, info, skills, exps, educations } from "./sidebarData";
 import { groupSkills, toggleState } from "./sidebarUtils";
-import { PDFDownloadLink } from "@react-pdf/renderer";
-import CVTemplate from "./CV_template";
-
 const Sidebar = () => {
   const data = {
     name: "TRAN QUOC BAO",
@@ -43,7 +40,7 @@ const Sidebar = () => {
   return (
     <>
       <div>
-        <div id="cv-content" className="flex">
+        <div className="flex">
           {/* Sidebar */}
           <div className="w-100 bg-[#566F77] text-[#F2F4F6] h-auto relative duration-300 m-5 rounded-xl overflow-hidden">
             <div className="bg-[#7DA38C] p-5 pt-8 flex flex-col justify-between items-center">
@@ -63,10 +60,36 @@ const Sidebar = () => {
                 {info.map((item, idx) => (
                   <li key={idx} className="flex justify-between space-x-2 mb-3">
                     <img src={item.icon} alt={item.name} className="w-5 h-5" />
-                    <span>{item.value}</span>
+                    {item.value.startsWith("http") ||
+                    item.value.includes("github.com") ||
+                    item.value.includes("linkedin.com") ? (
+                      <a
+                        href={
+                          item.value.startsWith("http")
+                            ? item.value
+                            : "https://" + item.value
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {item.value}
+                      </a>
+                    ) : item.value.startsWith("mailto:") ||
+                      item.name === "Email" ? (
+                      <a
+                        href={`mailto:${item.value}`}
+                        className=" hover:underline"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span>{item.value}</span>
+                    )}
                   </li>
                 ))}
               </ul>
+
               <div className="space-y-5 mb-8">
                 {Object.keys(groupedSkills).map((group, index) => (
                   <div key={index}>
@@ -79,7 +102,7 @@ const Sidebar = () => {
                       <h2 className="font-semibold text-xl bg-[#7DA38C] rounded-4xl overflow-hidden p-2 px-3">
                         {group}
                       </h2>
-                      <div className="flex-grow border-b border-[#FAEBEF] mx-2"></div>
+                      <div className="grow border-b border-[#FAEBEF] mx-2"></div>
                       {openGroups[group] ? (
                         <ChevronDown className="text-[#FAEBEF]" size={20} />
                       ) : (
@@ -165,25 +188,22 @@ const Sidebar = () => {
                 </div>
               ))}
             </div>
+            <div className="flex justify-end mx-2 my-5">
+              <button
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = `${import.meta.env.BASE_URL}CV_TranQuocBao.pdf`; // đường dẫn đúng khi deploy
+                  link.download = "CV_TranQuocBao.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="bg-[#7DA38C] text-[#F2F4F6] font-semibold px-6 py-3 rounded-3xl hover:bg-[#6B9274] duration-200"
+              >
+                Tải CV PDF
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="flex justify-end m-5">
-          <PDFDownloadLink
-            document={<CVTemplate data={data} />}
-            fileName="TranQuocBao_CV.pdf"
-          >
-            {({ loading }) =>
-              loading ? (
-                <button className="bg-gray-400 text-white px-4 py-2 rounded">
-                  Đang tạo PDF...
-                </button>
-              ) : (
-                <button className="bg-[#7DA38C] text-white px-4 py-2 rounded hover:bg-[#6B8C70]">
-                  Download PDF
-                </button>
-              )
-            }
-          </PDFDownloadLink>
         </div>
       </div>
     </>
@@ -194,11 +214,11 @@ export default Sidebar;
 
 // Reusable section title
 const SectionTitle = ({ title }) => (
-  <div className="flex items-center mb-2 ">
-    <div className="flex-grow border-2 rounded-full border-[#566F77] mx-2"></div>
+  <div className="flex items-center my-2 ">
+    <div className="grow border-2 rounded-full border-[#566F77] mx-2"></div>
     <h2 className=" bg-[#566F77]  text-[#F2F4F6] font-semibold text-2xl rounded-4xl overflow-hidden p-2 px-5">
       {title}
     </h2>
-    <div className="flex-grow border-2 rounded-full border-[#566F77] mx-2"></div>
+    <div className="grow border-2 rounded-full border-[#566F77] mx-2"></div>
   </div>
 );

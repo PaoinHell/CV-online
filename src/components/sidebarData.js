@@ -2,18 +2,24 @@ import avatar from "../../public/avatar.jpg";
 import icon_github from "../../public/icons/icon_github.png";
 import icon_email from "../../public/icons/icon_email.png";
 import icon_phone from "../../public/icons/icon_phone.png";
-import icon_fb from "../../public/icons/icon_fb.png";
+import icon_linkedin from "../../public/icons/icon_linkedin.png";
+import icon_location from "../../public/icons/icon_location.png";
 
 export const avatarImg = avatar;
 
 export const info = [
-  { icon: icon_github, name: "Github", value: "https://github.com/PaoinHell" },
+  { icon: icon_github, name: "Github", value: "github.com/PaoinHell" },
   { icon: icon_email, name: "Email", value: "paowork1410@outlook.com" },
   { icon: icon_phone, name: "Phone", value: "+84 939 092 594" },
   {
-    icon: icon_fb,
-    name: "Facebook",
-    value: "fb.com/pao.multiverse.1410",
+    icon: icon_linkedin,
+    name: "LinkedIn",
+    value: "linkedin.com/in/paoinhell",
+  },
+  {
+    icon: icon_location,
+    name: "Location",
+    value: "Ho Chi Minh City, Vietnam",
   },
 ];
 
@@ -26,10 +32,14 @@ export const skills = [
   { name: "ASP.NET Core", group: "Tech Stacks" },
   { name: "Figma", group: "Tools" },
   { name: "Office Tools", group: "Tools" },
+  { name: "Postman", group: "Tools" },
+  { name: "Git & Github", group: "Tools" },
   { name: "Requirement Analysis", group: "Soft Skills" },
   { name: "Email Writing", group: "Soft Skills" },
   { name: "Teamwork", group: "Soft Skills" },
-  { name: "Sociable, Friendly", group: "Soft Skills" },
+  { name: "Communication", group: "Soft Skills" },
+  { name: "Design UI", group: "Soft Skills" },
+  { name: "Problem Solving", group: "Soft Skills" },
   { name: "Basic English Communication", group: "Language" },
   { name: "TOEIC (Updating...)", group: "Cerfications" },
 ];

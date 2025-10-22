@@ -60,7 +60,7 @@ export const exps = [
     name: "CV Online | Teamsize: 1",
     position: "Frontend Developer",
     description: [
-      "Tech Stack: Vite+React, Tailwind",
+      "Tech Stack: Vite + React, TailwindCSS",
       "Make it beneficial for employers to look through the applicant's information",
     ],
   },

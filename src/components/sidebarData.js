@@ -61,6 +61,7 @@ export const exps = [
     position: "Frontend Developer",
     description: [
       "Tech Stack: Vite + React, TailwindCSS",
+      "URLs: https://paoinhell.github.io/CV-online/",
       "Make it beneficial for employers to look through the applicant's information",
     ],
   },

@@ -13,7 +13,7 @@ export const info = [
   {
     icon: icon_fb,
     name: "Facebook",
-    value: "facebook.com/pao.multiverse.1410",
+    value: "fb.com/pao.multiverse.1410",
   },
 ];
 

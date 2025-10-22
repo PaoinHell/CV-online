@@ -1,7 +1,8 @@
 @import "tailwindcss";
 @font-face {
   font-family: "MyFont";
-  src: url("/fonts/RobotoMono-VariableFont_wght.ttf") format("truetype");
+  src: url("../public/Roboto_Mono/RobotoMono-VariableFont_wght.ttf")
+    format("truetype");
   font-weight: normal;
   font-style: normal;
 }
